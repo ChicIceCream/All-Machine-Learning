@@ -12,6 +12,7 @@ load_dotenv()
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 model = genai.GenerativeModel("gemini-pro-vision")
 
+# Using Gemini API to get a response
 def get_gemini_response(input_text, image):
     '''
     This function will load the Gemini model and get responses
@@ -25,21 +26,6 @@ def get_gemini_response(input_text, image):
         return response.parts[0].text
     else:
         return "No valid response returned by the model."
-
-# Set up Streamlit application
-st.set_page_config(page_title="Image Application Demo")
-
-st.header("Gemini Image Application")
-
-input_text = st.text_input("Input: ", key="input")
-
-file_uploaded = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
-image = None
-if file_uploaded:
-    image = Image.open(file_uploaded)
-    st.image(image, caption='Uploaded Image.', use_column_width=True)
-
-submit = st.button("Tell me about the image")
 
 # Function to display text in a streaming manner by chunks
 def stream_response(response_text, chunk_size=14):
@@ -56,6 +42,21 @@ def stream_response(response_text, chunk_size=14):
         text += "\n\n"
         placeholder.text(text)
         time.sleep(0.5)  # Adjust the speed of chunk streaming here
+
+# Set up Streamlit application
+st.set_page_config(page_title="Image Application Demo")
+
+st.header("Gemini Image Application")
+
+input_text = st.text_input("Input: ", key="input")
+
+file_uploaded = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
+image = None
+if file_uploaded:
+    image = Image.open(file_uploaded)
+    st.image(image, caption='Uploaded Image.', use_column_width=True)
+
+submit = st.button("Tell me about the image")
 
 # When submit is clicked
 if submit:
