@@ -50,10 +50,10 @@ st.header("Gemini Image Application")
 
 input_text = st.text_input("Input: ", key="input")
 
-file_uploaded = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
 image = None
-if file_uploaded:
-    image = Image.open(file_uploaded)
+if uploaded_file:
+    image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded Image.', use_column_width=True)
 
 submit = st.button("Tell me about the image")
