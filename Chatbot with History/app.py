@@ -55,6 +55,7 @@ if submit and input_text:
     st.session_state['chat_history'].append(("**You", input_text))
     st.subheader("The response is: ")
     
+    # Adding spinning animation and generating response using stream
     with st.spinner('Generating response...'):
         response = get_gemini_response(input_text)
     st.header("The response to your question is: ")
