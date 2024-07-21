@@ -46,7 +46,7 @@ def stream_response(response_text, chunk_size=14):
 # Set up Streamlit application
 st.set_page_config(page_title="Image Application Demo")
 
-st.header("Gemini Image Application")
+st.header("Image Detection")
 
 input_text ="Give me all the details I would need to know for finding this device. Include the brand, model, and any other relevant information. Give it in single keywords"
 
