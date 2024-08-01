@@ -48,7 +48,11 @@ st.set_page_config(page_title="Image Application Demo")
 
 st.header("Image Detection")
 
-input_text ="Give me all the details I would need to know for finding this device. Include the brand, model, and any other relevant information. Give it in single keywords"
+input_text ='''
+Give me all the details I would need to know for finding this device. Include the brand,\n
+model, and any other relevant information. Give it in single keywords. Give me all the \n
+details I would need to know for finding this device. 
+'''
 
 uploaded_file = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
 image = None
