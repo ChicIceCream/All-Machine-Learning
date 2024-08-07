@@ -16,7 +16,7 @@ load_dotenv()
 # Load the Groq and Google API
 
 groq_api_key = os.getenv("GROQ_API_KEY")
-os.environ('GOOGLE_API_KEY') = os.getenv("GOOGLE_API_KEY")
+os.environ['GOOGLE_API_KEY']= os.getenv("GOOGLE_API_KEY")
 
 st.title("Gemma Document Q&A")
 
@@ -39,14 +39,14 @@ prompt = ChatPromptTemplate.from_template(
 def vector_embeddings():
     
     if "vetors" not in st.session_state:
-        st.session_state.embeddings = GoogleGenerativeAIEmbeddings(model="models/embeddings-001")
+        st.session_state.embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
         st.session_state.loader = PyPDFDirectoryLoader("./pdf_folder")
         st.session_state.docs = st.session_state.loader.load()
         st.session_state.text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
         st.session_state.final_documents = st.session_state.text_splitter.split_documents(st.session_state.docs)
         st.session_state.vectors = FAISS.from_documents(st.session_state.final_documents, st.session_state.embeddings)
     
-prompt1 = st.text_input("Enter youe question from the documents : ")
+prompt1 = st.text_input("Enter your question from the documents : ")
 
 if st.button("Creating Vector Store"):
     vector_embeddings()
@@ -63,3 +63,9 @@ if prompt1:
     response = retrieval_chain.invoke({'input':prompt1})
     st.write(response['answer'])
     
+    # With a Streamlit expander 
+    with st.expander("Document Similarity Search"):
+        # Finding the relevant chunks
+        for i, doc in enumerate(response['context']):
+            st.write(doc.page_content)
+            st.write("----------------------")
