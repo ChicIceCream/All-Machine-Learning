@@ -68,4 +68,4 @@ if prompt1:
         # Finding the relevant chunks
         for i, doc in enumerate(response['context']):
             st.write(doc.page_content)
-            st.write("----------------------")
+            # st.write("----------------------")
