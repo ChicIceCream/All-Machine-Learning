@@ -64,7 +64,7 @@ submit = st.button("Extract Invoice Data")
 input_prompt = """
 You are an expert in reading invoices. 
 The user has uploaded an invoice image and is asking for help.
-If the user asks any questions about the invioce, read from the image and 
+If the user asks any questions about the invoice, read from the image and 
 provide an answer.
 """
 
