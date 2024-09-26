@@ -7,12 +7,12 @@ import streamlit as st
 import os
 import google.generativeai as genai
 import pdf2image
-from PIL import Image
+
 
 genai.configure(api_key=os.getenv("GOOGLE-API-KEY"))
 
 def get_gemini_response(input, pdf_content, prompt):
-    model = genai.get_model('gemeni-pro-vision')
+    model = genai.GenerativeModel('gemini-1.5-flash')
     response = model.generate_content([input, pdf_content[0], prompt])
     
     return response.text
@@ -61,8 +61,38 @@ percentage_prompt = '''
 Compare my resume to the provided job description and calculate a percentage match. Analyze how well my skills, experience, and qualifications align with the requirements of the job. Highlight the areas where I meet the criteria and those where I fall short, with suggestions to improve alignment
 '''
 
-def improve_resume():
-    pass
+if submit1:
+    if uploaded_file is not None:
+        pdf_content = input_pdf_setup(uploaded_file)
+        response = get_gemini_response(analyze_prompt, pdf_content, input_text)
+        st.subheader("The Response is : ")
+        st.write(response)
+    else:
+        print("Please upload your resume!")
 
-def analyze_resume():
-    pass
+if submit2:
+    if uploaded_file is not None:
+        pdf_content = input_pdf_setup(uploaded_file)
+        response = get_gemini_response(improvement_prompt, pdf_content, input_text)
+        st.subheader("The Response is : ")
+        st.write(response)
+    else:
+        print("Please upload your resume!")
+
+if submit3:
+    if uploaded_file is not None:
+        pdf_content = input_pdf_setup(uploaded_file)
+        response = get_gemini_response(keyword_prompt, pdf_content, input_text)
+        st.subheader("The Response is : ")
+        st.write(response)
+    else:
+        print("Please upload your resume!")
+
+if submit4:
+    if uploaded_file is not None:
+        pdf_content = input_pdf_setup(uploaded_file)
+        response = get_gemini_response(percentage_prompt, pdf_content, input_text)
+        st.subheader("The Response is : ")
+        st.write(response)
+    else:
+        print("Please upload your resume!")
