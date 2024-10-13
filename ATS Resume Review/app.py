@@ -9,10 +9,10 @@ import google.generativeai as genai
 import pdf2image
 
 
-genai.configure(api_key=os.getenv("GOOGLE-API-KEY"))
+genai.configure(api_key=os.getenv("GOOGLE-API-KEY")) # load the api key
 
 def get_gemini_response(input, pdf_content, prompt):
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-1.5-flash') # load the model
     response = model.generate_content([input, pdf_content[0], prompt])
     
     return response.text
