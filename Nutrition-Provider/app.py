@@ -84,8 +84,8 @@ if st.button("Check for calories"):
         # Correct: passing `image` directly as a PIL image object to the API.
         response = get_gemini_response(prompt, image)
         st.header("The streamed response is: ")
-        st.write(stream_response(response))
-        st.write("More structured response : ")
+        # st.write(stream_response(response))
+        # st.write("More structured response : ")
         st.write(response)
     else:
         st.error("Please upload an image before checking for calories.")
