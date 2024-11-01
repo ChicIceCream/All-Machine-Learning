@@ -16,7 +16,7 @@ load_dotenv()
 # Load the Groq and Google API
 
 groq_api_key = os.getenv("GROQ_API_KEY")
-os.environ['GOOGLE_API_KEY']= os.getenv("GOOGLE_API_KEY")
+# os.environ['GOOGLE_API_KEY']= os.getenv("GOOGLE_API_KEY")
 
 st.title("Gemma Document Q&A")
 
