@@ -37,10 +37,18 @@ def main():
 
     # Prompt for the model
     input_prompt = """
-    You are an expert in reading pdfs. 
-    The user has uploaded a pdf for you to summarise. Give the summary of the input data.
-    Try to summarise it in 3 small paragraphs or less. 
-    """
+You are an expert in analyzing documents for investment insights. 
+The user has uploaded a PDF containing information about a company's business.
+Summarize this document with a focus on key elements that would interest an investor, including:
+
+- Future growth prospects
+- Notable changes in the business or strategy
+- Potential key triggers for growth or risk
+- Important details that could have a material impact on earnings and growth in the coming year
+
+Please provide the summary in 3 concise paragraphs or fewer, highlighting only the most relevant insights for an investor.
+"""
+
 
     print("Generating response...")
     response = get_gemini_response(input_prompt, pdf_text)
