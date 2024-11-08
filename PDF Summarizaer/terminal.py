@@ -28,7 +28,7 @@ def input_pdf_text(file_path):
 
 def main():    
 
-    pdf_path = "your pdf path in quotes"  # Replace with your file path
+    pdf_path = "C:\\Users\\User\\Downloads\\SJS Transcript Call.pdf"  # Replace with your file path
     if not os.path.exists(pdf_path):
         print("File not found!")
         return
@@ -39,6 +39,7 @@ def main():
     input_prompt = """
     You are an expert in reading pdfs. 
     The user has uploaded a pdf for you to summarise. Give the summary of the input data.
+    Try to summarise it in 3 small paragraphs or less. 
     """
 
     print("Generating response...")
