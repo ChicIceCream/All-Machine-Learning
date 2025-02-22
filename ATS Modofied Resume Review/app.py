@@ -54,7 +54,6 @@ submit3 = st.button("Missing keywords?")
 submit4 = st.button("Percentage Match to job description")
 
 
-
 if submit1:
     if uploaded_file is not None:
         pdf_text = input_pdf_text(uploaded_file)
