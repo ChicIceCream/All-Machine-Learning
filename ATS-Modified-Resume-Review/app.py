@@ -27,7 +27,6 @@ def input_pdf_text(uploaded_file):
         text += page.extract_text()
     return text
 
-
 analyze_prompt = '''
 "Analyze the content of my resume. Provide a detailed breakdown of my strengths, key skills, and qualifications, based on the information in the resume. Highlight the areas where I stand out, and how my experience aligns with general industry standards."
 '''
