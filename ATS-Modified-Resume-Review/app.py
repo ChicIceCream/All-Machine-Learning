@@ -24,7 +24,7 @@ def input_pdf_text(uploaded_file):
     reader = pdf.PdfReader(uploaded_file)
     text = ""
     for page in reader.pages:
-      text += page.extract_text()
+        text += page.extract_text()
     return text
 
 analyze_prompt = '''
