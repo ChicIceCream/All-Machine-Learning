@@ -14,3 +14,5 @@ def get_gemini_response(prompt):
 prompt = input("Enter your prompt: ")
 response = get_gemini_response(prompt)
 print("Response from Gemini:", response)
+
+# redundant 
