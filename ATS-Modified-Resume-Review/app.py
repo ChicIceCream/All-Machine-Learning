@@ -39,7 +39,6 @@ Scan my resume for important keywords and industry-specific terms related to my 
 percentage_prompt = '''
 Compare my resume to the provided job description and calculate a percentage match. Analyze how well my skills, experience, and qualifications align with the requirements of the job. Highlight the areas where I meet the criteria and those where I fall short, with suggestions to improve alignment
 '''
-
 ## Streamlit app
 
 st.title("ATS Resume Reviewer")
