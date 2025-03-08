@@ -96,4 +96,3 @@ if submit4:
         st.write(response)
     else:
         print("Please upload your resume!")
-        
